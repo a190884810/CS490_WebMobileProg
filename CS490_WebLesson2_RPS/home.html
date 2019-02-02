@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock | Paper | Scissors</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3 class="text-center">ROCK!</h3>
+
+            </div>
+            <div class="col-sm-4">
+                <h3 class="text-center">PAPER!</h3>
+
+            </div>
+            <div class="col-sm-4">
+                <h3 class="text-center">SCISSORS!</h3>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="img-responsive" id="rockImg" src="images/Rock.png" onclick="play('rock')">
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive" id="paperImg" src="images/Paper.png" onclick="play('paper')">
+            </div>
+            <div class="col-sm-4">
+                <img class="img-responsive" id="scissorsImg" src="images/Scissors.png" onclick="play('scissors')">
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // var rockChoice = document.getElementById("rockImg");
+    // rockChoice.addEventListener("click", function(){
+    //     switch (this.innerHTML){
+    //         case ""
+    //
+    //     }
+    //
+    // })
+
+function play(userChoice) {
+    //var userChoice = prompt("Do you choose rock, paper or scissors?");
+    if (! userChoice) {
+        // User choice was undefined
+        document.write("<p>Player 1, you cheated! Refresh this screen and fight like a man.</p>");
+    } else {
+        // Display user choice
+        document.write("<p>Player 1:" + " " + userChoice + "</p>");
+    }
+    // Computer choice
+    var computerChoice = Math.random();
+    if (computerChoice < 0.34) {
+        computerChoice = "rock";
+    } else if(computerChoice <= 0.67) {
+        computerChoice = "paper";
+    } else {
+        computerChoice = "scissors";
+    }
+    // Display computer choice
+    document.write("<p>Computer:" + " " + computerChoice + "</p>");
+    // Compare user choice vs computer choice
+    var compare = function(choice1,choice2) {
+        if (choice1 === choice2) {
+            return "It's a tie!";
+        }
+        if (choice1 === "rock") {
+            if (choice2 === "scissors") {
+                // rock wins
+                return "You win!";
+            } else {
+                // paper wins
+                return "You lose! Try again.";
+            }
+        }
+        if (choice1 === "paper") {
+            if (choice2 === "rock") {
+                // paper wins
+                return "You win!";
+            } else {
+                // scissors wins
+                return "You lose! Try again.";
+            }
+        }
+        if (choice1 === "scissors") {
+            if (choice2 === "rock") {
+                // rock wins
+                return "You lose! Try again.";
+            } else {
+                // scissors wins
+                return "You win!";
+            }
+        }
+    };
+    // Run the compare function
+    var results = compare(userChoice,computerChoice);
+    // Display results
+    //document.write("<br><hr><br>" + results);
+    var x = document.createElement("div");  // Creates a new <div> node
+    x.textContent = results;         // Sets the text content
+    document.body.appendChild(x);           // Adds to the document
+
+}
+
+
+
+</script>
+
+</body>
+</html>
