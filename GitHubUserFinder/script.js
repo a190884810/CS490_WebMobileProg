@@ -29,8 +29,6 @@ function showUser(user) {
     $('#profile .information').html(user.location);
     $('#profile').append("<div class='user_name'>" + user.name + "</div>");
     $('#profile').append("<a href=\"" + user.html_url + "\">" + user.html_url + "</a>");
-    //<a href="https://www.w3schools.com/html/">Visit our HTML tutorial</a>
-
 }
 
 function noSuchUser(username) {
