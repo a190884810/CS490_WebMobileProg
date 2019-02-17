@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2d2c672-f62c-4a9a-9f61-8193b9c912ac" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CS490_WebLesson2_RWD_Task/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CS490_WebLesson2_RWD_Task/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -110,12 +109,12 @@
       <workItem from="1549136527883" duration="562000" />
       <workItem from="1549137299793" duration="139000" />
       <workItem from="1549138720889" duration="5089000" />
-      <workItem from="1549148306977" duration="59000" />
+      <workItem from="1549148306977" duration="495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5849000" />
+    <option name="totallyTimeSpent" value="6285000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
