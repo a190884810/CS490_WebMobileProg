@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To Do List</title>
+  // 1. write Typescript code in "app.component.ts" to work with ToDo list
+</head>
+<body>
+ <!--2. write html(view) code to display the ToDos-->
+ <div class="container">
+   <h1>{{title}}</h1>
+   <ol class="items" *ngFor="let item of todoItems; let i = index;">
+     <li>{{item}} <span class="label pending" (click)="completeItem(i)">Pending</span></li>
+   </ol>
+   <ol class="items completed" *ngFor="let item of compItems; let i = index;">
+     <li>{{item}} <span class="label success" (click)="deleteItem(i)">Done!</span></li>
+   </ol>
+
+   <span class="total"></span>
+   <br/>
+   <input type="text" id="item" [(ngModel)]="newItem" placeholder="New Item"/>
+   <button id="add-to-list" (click)="submitNewItem()">Add to list</button>
+
+ </div>
+
+
+</body>
+</html>
