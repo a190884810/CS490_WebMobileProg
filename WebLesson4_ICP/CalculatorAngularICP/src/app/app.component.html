@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+   <!--1. write Typescript code in "app.component.ts" to work with calculator-->
+</head>
+<body>
+ <!--2. write html(view) code to display the calculator-->
+ <div class="container">
+   <div class="row">
+     <div class="col-lg-4 col-lg-offset-4 calc">
+       <p id="logo"> MATTIO </p>
+       <div class="screen">
+         <p id="equation">{{equation}}</p>
+         <p id="number">{{number}}</p>
+       </div>
+       <div class="buttons">
+         <div *ngFor="let cbutton of calculatorButtons;" class={{cbutton.elemClass}} (click)="buttonPush(cbutton.innerText)">
+           {{cbutton.innerText}}
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+</body>
+</html>
