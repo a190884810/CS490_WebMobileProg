@@ -36,22 +36,6 @@ export class SearchComponent implements OnInit {
     this.foodValue = this.foods.nativeElement.value;
     this.placeValue = this.places.nativeElement.value;
 
-    // if (this.foodValue !== null) {
-    //   this._http.get('https://api.edamam.com/search?q=' + this.recipeValue + '&app_id=90345b31&app_key=7884f37e59a7ff7d16ceb275bec553a9&from=0&to=3')
-    //     .subscribe((data: any)=>{
-    //       for (var i = 0; i < data.hits.length; i++) {
-    //            this.recipeList[i] = {
-    //           "name": data.hits[i].recipe.label,
-    //           "url": data.hits[i].recipe.url,
-    //           "icon": data.hits[i].recipe.image
-    //         };
-    //       }
-    //     });
-    // }
-
-
-
-    // if (this.placeValue != null && this.placeValue != "" && this.recipeValue != null && this.recipeValue != "") {
     if (this.placeValue != null && this.placeValue !== '' ) {
       this._http.get('https://api.foursquare.com/v2/venues/search' +
         '?client_id=E2UIA51CM0ASMF5REXFCZAHYOS2UXIBYPTDR53C4JZQ2EEXN' +
@@ -68,7 +52,6 @@ export class SearchComponent implements OnInit {
               'location': data.response.venues[i].location
             };
               console.log(this.venueList[i]);
-
             }
 
         });
