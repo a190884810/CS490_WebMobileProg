@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" src="https://marketingweek.imgix.net/content/uploads/2018/04/31103255/iStock-538980989-e1527759223230.jpg?auto=compress,format,&crop=faces,entropy,edges&fit=crop&q=60&w=750&h=" alt="Translate Logo" >
+</div>
+<div class="parent-container">
+  <div class="child-container">
+    <h2><b>Do A Translation!!
+    </b></h2><br>
+    <form>
+      <div class="form-group">
+        <div class="col-lg-6 offset-3 input-group">
+          <input type="text" class="form-control" placeholder="Words" #words>
+        </div><br>
+        <button type="button" class=" col-lg-2 col-lg-offset-5 " (click)="getTranslation()">Translate to German</button>
+
+      </div>
+    </form>
+    <div class="col-lg-6 offset-3 input-group">
+      <div class="result-message"><b>Translation: </b>{{wordsTranslate}}</div>
+    </div>
+    <div class="text-warning"><hr><br>
+      <p>API provided by: <a href="http://translate.yandex.com/">http://translate.yandex.com/</a></p>
+
+    </div>
+  </div>
+</div><br><br>
+
+
+
+<router-outlet></router-outlet>
