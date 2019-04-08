@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "171621090062",
+    "firebase_url": "https://lab3-mobile-login-app.firebaseio.com",
+    "project_id": "lab3-mobile-login-app",
+    "storage_bucket": "lab3-mobile-login-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171621090062:android:fdf2cb4461b263ae",
+        "android_client_info": {
+          "package_name": "com.themattburton.cs449.lab3mobileloginapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3FD4WgQCPltkha3GSQO4w1AkX6_hD6fk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171621090062-k286acpnelk68brurbqvs17e5u3tmkfo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
