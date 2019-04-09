@@ -13,7 +13,16 @@
           "package_name": "com.themattburton.cs449.lab3mobileloginapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "171621090062-7ne53j58eil1b49q8v84ek4i4s30gefn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.themattburton.cs449.lab3mobileloginapp",
+            "certificate_hash": "5a19c0668eac985052ba2278fd0cde22263a5d16"
+          }
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyC3FD4WgQCPltkha3GSQO4w1AkX6_hD6fk"
