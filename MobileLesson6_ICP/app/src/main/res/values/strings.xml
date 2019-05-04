@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SpeechToText</string>
+    <string name="hint">Tap on mic to start</string>
+    <string-array name="userQuestions">
+        <item name="Q1">I am not feeling good. What should I do?</item>
+        <item name="Q2">Thank you, my Medical Assistant</item>
+        <item name="Q3">What time is it?</item>
+        <item name="Q4">What medicines should I take?</item>
+    </string-array>
+    <string-array name="userQuestionResponses">
+        <item name="R1">I can understand. Please tell your symptoms in short.</item>
+        <item name="R2">Thank you too %1$s Take care</item>
+        <item name="R3">The time is %1$s</item>
+        <item name="R4">I think you have fever. Please take this medicine.</item>
+    </string-array>
+</resources>
