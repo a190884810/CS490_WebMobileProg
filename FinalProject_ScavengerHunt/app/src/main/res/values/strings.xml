@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">CS490 Final Project Scavenger Hunt</string>
+    <string name="take_picture_button">TAKE A PICTURE!</string>
+    <string name="card_found_phrase">\u0020 Found! BADASS!!!</string>
+    <string name="subscription_key">Redacted</string>
+    <string name="subscription_apiroot">https://centralus.api.cognitive.microsoft.com/</string>
+    <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
+    <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Vision API calls.</string>
+    <string-array name="searchWords">
+        <item>apple</item>
+        <item>book</item>
+        <item>car</item>
+        <item>spoon</item>
+        <item>guitar</item>
+        <item>computer</item>
+        <item>chair</item>
+        <item>person</item>
+        <item>shoe</item>
+        <item>tree</item>
+        <item>cup</item>
+        <item>backpack</item>
+        <item>glasses</item>
+        <item>phone</item>
+        <item>rock</item>
+        <item>can</item>
+        <item>paper</item>
+        <item>toothbrush</item>
+        <item>candy</item>
+    </string-array>
+</resources>
