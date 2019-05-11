@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">CS490 Final Project Scavenger Hunt</string>
     <string name="take_picture_button">TAKE A PICTURE!</string>
-    <string name="card_found_phrase">\u0020 Found! BADASS!!!</string>
-    <string name="subscription_key">Redacted</string>
+    <string name="card_found_phrase">\u0020 Found!</string>
+    <string name="subscription_key">e39f0dccf0ef4145a1d0cef9a0de3147</string>
     <string name="subscription_apiroot">https://centralus.api.cognitive.microsoft.com/</string>
     <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
     <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Vision API calls.</string>

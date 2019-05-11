@@ -252,7 +252,7 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
                         public void run() {
                             card.setFound(true);
                             adapter.notifyDataSetChanged();
-                            postToastMessage("You matched " + name + "!!! \nBADASS!!!");
+                            postToastMessage("You matched " + name + "!!! \nNICE!!!");
                             if (finalCount == NUMBER_OF_HUNT_WORDS) {
                                 postToastMessage("YOU FOUND ALL THE WORDS!!!  REALLY ACCEPTABLE JOB!!!");
                                 userImage.setImageResource(R.drawable.great_job_you_rock);
