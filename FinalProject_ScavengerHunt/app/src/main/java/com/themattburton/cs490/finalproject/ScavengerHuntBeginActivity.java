@@ -13,6 +13,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -67,7 +69,9 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
     private File currentImageFile;
     private File currentImageFileJpg;
     private ScavengerHuntBeginActivity scavAct;
-    List<String> mainWordsList;
+    private TextToSpeech tts;
+    private List<String> mainWordsList;
+    private List<String> praisePhrasesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +100,9 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
         mainWordsList = new ArrayList(Arrays.asList(words));
         Collections.shuffle(mainWordsList);
         //adapter.addAll(mainWordsList);
+        String[] praise = getResources().getStringArray(R.array.praisePhrases);
+        praisePhrasesList = new ArrayList(Arrays.asList(praise));
+        Collections.shuffle(praisePhrasesList);
 
         int currentHuntWordsSize = mainWordsList.size() < NUMBER_OF_HUNT_WORDS ? mainWordsList.size() : NUMBER_OF_HUNT_WORDS;
 
@@ -103,6 +110,16 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
             adapter.add(new SearchWordCardModel(mainWordsList.get(i).toString()));
         }
 
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    // Setting the Locale.
+                    tts.setLanguage(Locale.US);
+                    tts.speak("Please find these items and take a picture!", TextToSpeech.QUEUE_FLUSH, null, null);
+                }
+            }
+        });
     }
 
     @Override
@@ -216,7 +233,8 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
                     if (responseJson != null && !responseJson.isEmpty()) {
                         updateHunt(responseJson);
                     } else {
-                        postToastMessage("No results this time; try again!");
+                        postToastMessage("No match this time; try again!");
+                        tts.speak("No match this time; try again!", TextToSpeech.QUEUE_ADD, null, null);
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -230,6 +248,7 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
 
     private void updateHunt(String responseJson) throws JSONException {
         int successCount = 0;
+        boolean itemFound = false;
         //List<String> returnedTags = new ArrayList<String>();
         JSONObject responseJsonObj = new JSONObject(responseJson);
         JSONArray responseJsonArray = responseJsonObj.getJSONArray("tags");
@@ -246,15 +265,25 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
                 } else if (name.toLowerCase().contains(card.getSearchWord().toLowerCase())) {
                     System.out.println("match on " + name);
                     successCount++;
+                    itemFound = true;
 
                     final int finalCount = successCount;
+                    Collections.shuffle(praisePhrasesList);
+                    postToastMessage("You matched " + name + "!!! \nNICE!!!");
+                    tts.speak("You matched " + name + "! Nice!", TextToSpeech.QUEUE_ADD, null, null);
+                    tts.speak(praisePhrasesList.get(0), TextToSpeech.QUEUE_ADD, null, null);
+
+                    if (successCount == NUMBER_OF_HUNT_WORDS) {
+                        postToastMessage("YOU FOUND ALL THE WORDS!!!  REALLY ACCEPTABLE JOB!!!");
+                        tts.speak("You found all the words! Really acceptable job!", TextToSpeech.QUEUE_ADD, null, null);
+                        tts.speak("You rock!", TextToSpeech.QUEUE_ADD, null, null);
+                    }
+
                     scavAct.runOnUiThread(new Runnable() {
                         public void run() {
                             card.setFound(true);
                             adapter.notifyDataSetChanged();
-                            postToastMessage("You matched " + name + "!!! \nNICE!!!");
                             if (finalCount == NUMBER_OF_HUNT_WORDS) {
-                                postToastMessage("YOU FOUND ALL THE WORDS!!!  REALLY ACCEPTABLE JOB!!!");
                                 userImage.setImageResource(R.drawable.great_job_you_rock);
                                 setNewSearchWords();
                             }
@@ -273,11 +302,12 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
                     //adapter..getView(j).setBackgroundColor(Color.GREEN);
                     //break;
                 }
-
             }
 
-            //cardListView.getAdapter().getItem(0);
-
+        }
+        if (!itemFound) {
+            postToastMessage("No match this time; try again!");
+            tts.speak("No match this time; try again!", TextToSpeech.QUEUE_ADD, null, null);
         }
     }
 
@@ -293,12 +323,14 @@ public class ScavengerHuntBeginActivity extends AppCompatActivity {
         if (currentHuntWordsSize == 0) {
             userImage.setImageResource(R.drawable.false_you_did_an_awesome_job);
             postToastMessage("WINNER WINNER CHICKEN DINNER!!!  GAME OVER MAN!!!");
+            tts.speak("WINNER WINNER CHICKEN DINNER!  GAME OVER MAN!", TextToSpeech.QUEUE_ADD, null, null);
             //TODO: maybe reset mainWordsList back to the full list of search words, or send Stellar-based tokens to user wallet
         } else {
             for (int i = 0; i < currentHuntWordsSize; i++) {
                 adapter.add(new SearchWordCardModel(mainWordsList.get(i)));
             }
             postToastMessage("Find these new words!");
+            tts.speak("Please find these items and take a picture!", TextToSpeech.QUEUE_ADD, null, null);
         }
     }
 

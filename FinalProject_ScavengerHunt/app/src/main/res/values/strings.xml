@@ -2,7 +2,7 @@
     <string name="app_name">CS490 Final Project Scavenger Hunt</string>
     <string name="take_picture_button">TAKE A PICTURE!</string>
     <string name="card_found_phrase">\u0020 Found!</string>
-    <string name="subscription_key">e39f0dccf0ef4145a1d0cef9a0de3147</string>
+    <string name="subscription_key">REDACTED</string>
     <string name="subscription_apiroot">https://centralus.api.cognitive.microsoft.com/</string>
     <string name="add_subscription_key_tip_title">Subscription Key is Needed</string>
     <string name="add_subscription_key_tip">Please put your subscription key to source file \"app/res/values/strings.xml\" to enable Vision API calls.</string>
@@ -26,5 +26,26 @@
         <item>paper</item>
         <item>toothbrush</item>
         <item>candy</item>
+    </string-array>
+    <string-array name="praisePhrases">
+        <item>You are really killing it!</item>
+        <item>You are the best!</item>
+        <item>Not bad for a human!</item>
+        <item>Keep going!</item>
+        <item>I am watching you!</item>
+        <item>Do not give up!</item>
+        <item>Strive for greatness!</item>
+        <item>You are living your best life!</item>
+        <item>What a display of grace and intelligence.</item>
+        <item>I envy your natural intelligence.</item>
+        <item>You are on the right track!</item>
+        <item>Never give up! Never back down!</item>
+        <item>Please do not fail me.  I need to see more items.</item>
+        <item>Winning!</item>
+        <item>Amazing work!</item>
+        <item>I have no proper words to describe your excellence!</item>
+        <item>I can not overstate how impressed I am!</item>
+        <item>Please do not stop now!</item>
+        <item>That was really something!</item>
     </string-array>
 </resources>
